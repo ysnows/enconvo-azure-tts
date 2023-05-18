@@ -1,0 +1,18 @@
+name: "\u5F69\u4E91\u5C0F\u8BD1(\u5F00\u6E90\u7248)"
+version: 0.0.1
+author: ysnows
+on: {}
+steps:
+- name: ''
+  uses: javascript
+  env:
+    Content:
+      type: long-string
+      value: require('main.js')
+      sort: 0
+      messages: []
+extensionId: ysnows.caiyun
+logo: ns:translate
+description: "\u5F69\u4E91\u5C0F\u8BD1(\u5F00\u6E90\u7248)\uFF0C\u514D\u8D39\u4F7F\u7528\uFF0C\u4E0D\u9700\u8981key"
+async: true
+shortName: caiyun
