@@ -4,7 +4,7 @@ function init_data(source_lang, target_lang) {
         "detect": true,
         "os_type": "ios",
         "device_id": "F1F902F7-1780-4C88-848D-71F35D88A602",
-        "trans_type": source_lang + '2' + target_lang,
+        "trans_type":  'auto2' + target_lang,
         "media": "text",
         "request_id": 424238335,
         "user_id": "",
@@ -36,8 +36,14 @@ async function translate(query) {
     console.log("begin")
 
     if (translate_text !== '') {
-        source_lang = lang.detect(translate_text)
+        source_lang = await $lang.detect(translate_text)
         console.log("source_lang : " + source_lang)
+        // 如果是中文则翻译成英文，否则翻译成中文
+        if (source_lang === 'zh') {
+            target_lang = 'en'
+        } else {
+            target_lang = 'zh'
+        }
 
         id = getRandomNumber()
         const url = 'https://interpreter.cyapi.cn/v1/translator';
