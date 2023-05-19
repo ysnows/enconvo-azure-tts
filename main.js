@@ -1,75 +1,59 @@
-function init_data(source_lang, target_lang) {
-    return {
-        "source": "",
-        "detect": true,
-        "os_type": "ios",
-        "device_id": "F1F902F7-1780-4C88-848D-71F35D88A602",
-        "trans_type":  'auto2' + target_lang,
-        "media": "text",
-        "request_id": 424238335,
-        "user_id": "",
-        "dict": true
-    };
-}
-
-function getRandomNumber() {
-    const rand = Math.floor(Math.random() * 99999) + 100000;
-    return rand * 1000;
-}
-
-
-function sleep(delay) {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            console.log("hello")
-            resolve("world")
-        }, 1000);
-    })
-}
-
 async function translate(query) {
 
-    var source_lang = 'en';
-    var target_lang = 'zh';
+    var target_lang = 'en-US';
+    var target_voice = 'en-US-GuyNeural';
     const translate_text = query || '';
 
     console.log("begin")
 
     if (translate_text !== '') {
-        source_lang = await $lang.detect(translate_text)
+        let source_lang = await $Lang.detect(translate_text)
         console.log("source_lang : " + source_lang)
         // 如果是中文则翻译成英文，否则翻译成中文
+        if (source_lang === 'en') {
+            target_lang = 'en-US'
+            target_voice = 'en-US-GuyNeural'
+        }
         if (source_lang === 'zh') {
-            target_lang = 'en'
-        } else {
-            target_lang = 'zh'
+            target_lang = 'zh-CN'
+            target_voice = 'zh-CN-YunzeNeural'
+
         }
 
-        id = getRandomNumber()
-        const url = 'https://interpreter.cyapi.cn/v1/translator';
-        const post_data = init_data(source_lang, target_lang)
-        post_data.source = translate_text
-        post_data.request_id = getRandomNumber()
         try {
-            let response = await fetch(
-                url,
-                {
-                    method: "POST",
-                    header: {
-                        'Content-Type': 'application/json',
-                        'x-authorization': 'token ssdj273ksdiwi923bsd9',
-                        'user-agent': 'caiyunInterpreter/5 CFNetwork/1404.0.5 Darwin/22.3.0'
-                    },
-                    body: post_data,
-                })
+            try {
+                await $Audio.play(
+                    "https://southeastasia.api.speech.microsoft.com/accfreetrial/texttospeech/acc/v3.0-beta1/vcg/speak",
+                    {
+                        method: "POST",
+                        header: {
+                            'authority': 'southeastasia.api.speech.microsoft.com',
+                            'accept': '*/*',
+                            'accept-language': 'zh-CN,zh;q=0.9',
+                            'cache-control': 'no-cache',
+                            'content-type': 'application/json',
+                            'origin': 'https://azure.microsoft.com',
+                            'pragma': 'no-cache',
+                            'referer': 'https://azure.microsoft.com/',
+                            'sec-ch-ua': '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"',
+                            'sec-ch-ua-mobile': '?0',
+                            'sec-ch-ua-platform': '"macOS"',
+                            'sec-fetch-dest': 'empty',
+                            'sec-fetch-mode': 'cors',
+                            'sec-fetch-site': 'same-site',
+                            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'
+                        },
+                        // body: {"lang": targetLanguage, "speaker": $option[targetLanguage + '-speaker'], "text": query.text},
+                        body: {
+                            "ttsAudioFormat": "audio-24khz-160kbitrate-mono-mp3",
+                            "ssml": `<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:mstts=\"http://www.w3.org/2001/mstts\" version=\"1.0\" xml:lang=\"${target_lang}\"><voice name=\"${target_voice}\"><mstts:express-as><prosody rate=\"1\" pitch=\"0%\">${translate_text}</prosody></mstts:express-as></voice></speak>`
+                        }
+                    });
 
-            // 等待延迟一秒
-            let data = await response.json()
-            console.log("data" + JSON.stringify(data))
+                $Display.endOutput()
 
-            display.streamOutput(data.target || data.message)
-            console.log("end")
-            display.endOutput()
+            } catch (e) {
+            }
 
         } catch (e) {
             console.log("error" + JSON.stringify(e))

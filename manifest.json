@@ -1,8 +1,8 @@
 {
-  "logo" : "ns:translate",
-  "extensionId" : "ysnows.caiyun",
-  "description" : "彩云小译(开源版)，免费使用，不需要key",
-  "name" : "彩云小译(开源版)",
+  "author" : "ysnows",
+  "extensionId" : "ysnows.azure-tts",
+  "name" : "微软TTS(开源版)",
+  "description" : "微软TTS(开源版)，免费使用，不需要key",
   "version" : "0.0.1",
-  "author" : "ysnows"
+  "logo" : "ns:translate"
 }
