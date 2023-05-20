@@ -5,7 +5,10 @@ permissions:
   contents: write
 
 # 推送的tag中以v开头则执行此action
-on: [push]
+on:
+  push:
+    tags:
+      - "v*"
 
 jobs:
   build-release:
@@ -17,7 +20,7 @@ jobs:
         run: echo "ZIP_NAME=$(basename $(pwd)).enconvoplugin" >> $GITHUB_ENV
       # 将dist目录打成zip包
       - name: Zip Dist
-        run: zip -r $ZIP_NAME . -x "*release/*"
+        run: zip -r $ZIP_NAME . -x "*release/*" -x "*.github/*" -x "*.git/*" -x "*.idea/*"
       # 创建Release
       - name: Create Release
         id: create_release
