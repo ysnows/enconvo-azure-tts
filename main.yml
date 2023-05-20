@@ -1,6 +1,5 @@
 name: "\u5FAE\u8F6FTTS(\u5F00\u6E90\u7248)"
-version: 0.0.1
-minAppVersion: 0.0.1
+version: 0.0.3
 author: ysnows
 on: {}
 steps:
@@ -19,4 +18,4 @@ async: false
 shortName: tts
 homePage: https://enconvo.com
 appCast: ''
-shortCut: kss
+shortCut: alt+j
