@@ -12,7 +12,7 @@ def update_appcast(message):
         "version": version,
         "desc": message,
         "url": f"https://github.com/ysnows/enconvo-azure-tts/releases/download/v{version}/enconvo-azure-tts.enconvoplugin",
-        "minAppVersion": "0.5.0"
+        "minAppVersion": "1.1.8"
     }
     appcast_file = Path("appcast.json")
     if appcast_file.is_file():
