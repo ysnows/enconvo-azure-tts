@@ -16,9 +16,11 @@ jobs:
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v3
+      - name: Set zip file name
+        run: echo "ZIP_NAME=$(basename $(pwd)).enconvoplugin" >> $GITHUB_ENV
       # 将dist目录打成zip包
       - name: Zip Dist
-        run: zip -r $(basename "$(pwd)").enconvoplugin . -x "*release/*"
+        run: zip -r $ZIP_NAME . -x "*release/*"
       # 创建Release
       - name: Create Release
         id: create_release
@@ -33,6 +35,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./$(basename "$(pwd)").enconvoplugin
-          asset_name: $(basename "$(pwd)").enconvoplugin
+          asset_path: ./$ZIP_NAME
+          asset_name: $ZIP_NAME
           asset_content_type: application/zip
