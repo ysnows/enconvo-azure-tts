@@ -3,6 +3,12 @@
   "versions": [
     {
       "version": "0.0.5",
+      "desc": "feat: 1. v0.0.6",
+      "url": "https://github.com/ysnows/enconvo-azure-tts/releases/download/v0.0.5/enconvo-azure-tts.enconvoplugin",
+      "minAppVersion": "1.1.8"
+    },
+    {
+      "version": "0.0.5",
       "desc": "feat: 1. update README",
       "url": "https://github.com/ysnows/enconvo-azure-tts/releases/download/v0.0.5/enconvo-azure-tts.enconvoplugin",
       "minAppVersion": "1.1.8"
