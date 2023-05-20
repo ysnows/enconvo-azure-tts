@@ -42,3 +42,29 @@ jobs:
           asset_path: ./${{ env.ZIP_NAME }}
           asset_name: ${{ env.ZIP_NAME }}
           asset_content_type: application/zip
+
+      - name: Get last commit title
+        id: last-commit
+        run: echo "::set-output name=last_commit_title::$(git log -1 --pretty=format:%s)"
+
+      - run: git checkout -- src/
+
+      - name: Update appcast.json
+        id: run_script
+        run: |
+          output=$(python3 scripts/update_appcast.py "${{ steps.last-commit.outputs.last_commit_title }}")
+          echo "version=$output" >> $GITHUB_OUTPUT
+      - name: Commit files
+        run: |
+          git config --global user.name 'ysnows'
+          git config --global user.email 'ysnows@163.com'
+          git add appcast.json
+          git commit -am 'update appcast.json'
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUBTOKEN }}
+
+
+
