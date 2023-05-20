@@ -3,7 +3,7 @@ function main(text, contextText, completion) {
     (async () => {
         var target_lang = 'en-US';
         var target_voice = 'en-US-GuyNeural';
-        const translate_text = text || contextText;
+        const translate_text = text || contextText || await Clipboard.readText();
 
         console.log("begin")
 
