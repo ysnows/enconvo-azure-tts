@@ -2,6 +2,12 @@
   "identifier": "ysnows.caiyun",
   "versions": [
     {
+      "version": "0.0.1",
+      "desc": "feat: 1. release.yml",
+      "url": "https://github.com/ysnows/enconvo-azure-tts/releases/download/v0.0.1/enconvo-azure-tts.enconvoplugin",
+      "minAppVersion": "0.5.0"
+    },
+    {
       "version": "0.0.2",
       "desc": "",
       "sha256": "83b526c4f2c86fe57ce3e08d7b16cc3f0be1ff14795b0ef56403c2f67ce4c6ad",
