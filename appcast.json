@@ -2,6 +2,12 @@
   "identifier": "ysnows.caiyun",
   "versions": [
     {
+      "version": "0.0.3",
+      "desc": "Merge branch 'main' of github.com:ysnows/enconvo-azure-tts",
+      "url": "https://github.com/ysnows/enconvo-azure-tts/releases/download/v0.0.3/enconvo-azure-tts.enconvoplugin",
+      "minAppVersion": "0.5.0"
+    },
+    {
       "version": "0.0.1",
       "desc": "feat: 1. release.yml",
       "url": "https://github.com/ysnows/enconvo-azure-tts/releases/download/v0.0.1/enconvo-azure-tts.enconvoplugin",
