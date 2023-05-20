@@ -17,5 +17,6 @@ description: "\u5FAE\u8F6FTTS(\u5F00\u6E90\u7248)\uFF0C\u514D\u8D39\u4F7F\u7528\
 async: false
 shortName: tts
 homePage: https://enconvo.com
-appCast: ''
+appCast: https://raw.githubusercontent.com/ysnows/enconvo-azure-tts/main/appcast.json
 shortCut: alt+j
+minAppVersion: ''
