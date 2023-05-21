@@ -2,6 +2,12 @@
   "identifier": "ysnows.azure-tts",
   "versions": [
     {
+      "version": "0.0.9",
+      "desc": "Merge remote-tracking branch 'origin/main'",
+      "url": "https://github.com/ysnows/enconvo-azure-tts/releases/download/v0.0.9/enconvo-azure-tts.enconvoplugin",
+      "minAppVersion": "1.1.8"
+    },
+    {
       "version": "0.0.8",
       "desc": "feat: 1. v0.0.8",
       "url": "https://github.com/ysnows/enconvo-azure-tts/releases/download/v0.0.8/enconvo-azure-tts.enconvoplugin",
