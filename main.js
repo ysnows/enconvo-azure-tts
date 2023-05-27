@@ -50,12 +50,12 @@ function main(text, contextText, completion) {
                             }
                         });
 
-
                     completion({
                         result: {
                             "type": "audio",
                             "format": "base64",
                             "value": resp.rawData.toBase64(),
+                            "contentType": resp.headers.get('Content-Type'),
                             "raw": {}
                         },
                     });
