@@ -3,7 +3,7 @@ function main(text, contextText, completion) {
     (async () => {
         var target_lang = 'en-US';
         var target_voice = 'en-US-GuyNeural';
-        const translate_text = text || contextText || await Clipboard.readText();
+        const translate_text = text || contextText.value || await Clipboard.readText();
 
         console.log("begin")
 
@@ -49,7 +49,7 @@ function main(text, contextText, completion) {
                                 "ssml": `<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:mstts=\"http://www.w3.org/2001/mstts\" version=\"1.0\" xml:lang=\"${target_lang}\"><voice name=\"${target_voice}\"><mstts:express-as><prosody rate=\"1\" pitch=\"0%\">${translate_text}</prosody></mstts:express-as></voice></speak>`
                             }
                         });
-                    completion(contextText)
+                    completion(contextText.value)
                 } catch (e) {
                     throw e;
                 }
