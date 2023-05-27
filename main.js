@@ -22,7 +22,7 @@ function main(text, contextText, completion) {
 
             try {
                 try {
-                    await $Audio.play(
+                    const resp = await fetch(
                         "https://southeastasia.api.speech.microsoft.com/accfreetrial/texttospeech/acc/v3.0-beta1/vcg/speak",
                         {
                             method: "POST",
@@ -49,7 +49,16 @@ function main(text, contextText, completion) {
                                 "ssml": `<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:mstts=\"http://www.w3.org/2001/mstts\" version=\"1.0\" xml:lang=\"${target_lang}\"><voice name=\"${target_voice}\"><mstts:express-as><prosody rate=\"1\" pitch=\"0%\">${translate_text}</prosody></mstts:express-as></voice></speak>`
                             }
                         });
-                    completion(contextText.value)
+
+
+                    completion({
+                        result: {
+                            "type": "audio",
+                            "format": "base64",
+                            "value": resp.rawData.toBase64(),
+                            "raw": {}
+                        },
+                    });
                 } catch (e) {
                     throw e;
                 }
