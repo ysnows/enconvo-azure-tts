@@ -1,5 +1,5 @@
 name: "\u5FAE\u8F6FTTS(\u5F00\u6E90\u7248)"
-version: 0.0.9
+version: 0.1.0
 author: ysnows
 on: {}
 steps:
@@ -19,4 +19,79 @@ shortName: tts
 homePage: https://github.com/ysnows/enconvo-azure-tts
 appCast: https://raw.githubusercontent.com/ysnows/enconvo-azure-tts/main/appcast.json
 shortCut: alt+j
-minAppVersion: ''
+minAppVersion: 1.2.1
+flowType: plugin
+options:
+- title: General
+  items:
+  - identifier: Alias
+    type: text
+    title: Alias
+    defaultValue: ''
+    menuValues: []
+    desc: ''
+    placeholderText: Add alias
+    textWidth: 1.6e+2
+  - identifier: Hotkey
+    type: hotkey
+    title: Hotkey
+    defaultValue: ''
+    menuValues: []
+    desc: This shortcut will open an ai conversation window from anywhere in the system
+      . Make sure it is not conflicting with other global shortcuts.
+    placeholderText: ''
+    textWidth: 2e+2
+  desc: ''
+- title: "\u8BED\u97F3\u9009\u62E9"
+  items:
+  - identifier: zh-CN-speaker
+    type: menu
+    title: "zh_CN\u8BED\u97F3"
+    defaultValue: zh-CN-XiaoxiaoNeural
+    menuValues:
+    - title: "\u6653\u6653 - zh-CN-XiaoxiaoNeural - Female"
+      value: zh-CN-XiaoxiaoNeural
+    - title: "\u4E91\u626C - zh-CN-YunyangNeural - Male"
+      value: zh-CN-YunyangNeural
+    - title: "\u6653\u8FB0 - zh-CN-XiaochenNeural - Female"
+      value: zh-CN-XiaochenNeural
+    - title: "\u6653\u6DB5 - zh-CN-XiaohanNeural - Female"
+      value: zh-CN-XiaohanNeural
+    - title: "\u6653\u68A6 - zh-CN-XiaomengNeural - Female"
+      value: zh-CN-XiaomengNeural
+    - title: "\u6653\u58A8 - zh-CN-XiaomoNeural - Female"
+      value: zh-CN-XiaomoNeural
+    - title: "\u6653\u79CB - zh-CN-XiaoqiuNeural - Female"
+      value: zh-CN-XiaoqiuNeural
+    - title: "\u6653\u777F - zh-CN-XiaoruiNeural - Female"
+      value: zh-CNXiaoruiNeural
+    - title: "\u6653\u53CC - zh-CN-XiaoshuangNeural - Female"
+      value: zh-CN-XiaoshuangNeural
+    - title: "\u6653\u8431 - zh-CN-XiaoxuanNeural - Female"
+      value: zh-CN-XiaoxuanNeural
+    - title: "\u6653\u989C - zh-CN-XiaoyanNeural - Female"
+      value: zh-CN-XiaoyanNeural
+    - title: "\u6653\u4F0A - zh-CN-XiaoyiNeural - Female"
+      value: zh-CN-XiaoyiNeural
+    - title: "\u6653\u60A0 - zh-CN-XiaoyouNeural - Female"
+      value: zh-CN-XiaoyouNeural
+    - title: "\u6653\u7504 - zh-CN-XiaozhenNeural - Female"
+      value: zh-CN-XiaozhenNeural
+    - title: "\u4E91\u67AB - zh-CN-YunfengNeural - Male"
+      value: zh-CN-YunfengNeural
+    - title: "\u4E91\u7693 - zh-CN-YunhaoNeural - Male"
+      value: zh-CN-YunhaoNeural
+    - title: "\u4E91\u5065 - zh-CN-YunjianNeural - Male"
+      value: zh-CN-YunjianNeural
+    - title: "\u4E91\u590F - zh-CN-YunxiaNeural - Male"
+      value: zh-CN-YunxiaNeural
+    - title: "\u4E91\u5E0C - zh-CN-YunxiNeural - Male"
+      value: zh-CN-YunxiNeural
+    - title: "\u4E91\u91CE - zh-CN-YunyeNeural - Male"
+      value: zh-CN-YunyeNeural
+    - title: "\u4E91\u6CFD - zh-CN-YunzeNeural - Male"
+      value: zh-CN-YunzeNeural
+    desc: "\u5207\u6362zh_CN\u8BED\u97F3\u89D2\u8272"
+    placeholderText: ''
+    textWidth: 2e+2
+  desc: "\u9009\u62E9\u5BF9\u5E94\u8BED\u8A00\u7684\u8BED\u97F3"

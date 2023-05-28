@@ -1,10 +1,10 @@
 {
   "appCast" : "https:\/\/raw.githubusercontent.com\/ysnows\/enconvo-azure-tts\/main\/appcast.json",
   "name" : "微软TTS(开源版)",
-  "logo" : "ns:translate",
-  "version" : "0.0.3",
-  "extensionId" : "ysnows.azure-tts",
+  "homePage" : "https:\/\/github.com\/ysnows\/enconvo-azure-tts",
   "author" : "ysnows",
-  "homePage" : "https://github.com/ysnows/enconvo-azure-tts",
+  "extensionId" : "ysnows.azure-tts",
+  "version" : "0.1.0",
+  "logo" : "ns:translate",
   "description" : "微软TTS(开源版)，免费使用，不需要key"
 }
