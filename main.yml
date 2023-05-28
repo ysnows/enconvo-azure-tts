@@ -1,208 +1,213 @@
 name: "\u5FAE\u8F6FTTS(\u5F00\u6E90\u7248)"
-version: 0.1.0
+version: 0.1.4
 author: ysnows
-on: { }
+on: {}
 steps:
-  - name: ''
-    uses: javascript
-    env:
-      JSFilePath:
-        type: file-path
-        value: main.js
-        sort: 0
-        messages: [ ]
+- name: ''
+  uses: javascript
+  env:
+    JSFilePath:
+      type: file-path
+      value: main.js
+      sort: 0
+      messages: []
 extensionId: ysnows.azure-tts
 logo: ns:translate
 description: "\u5FAE\u8F6FTTS(\u5F00\u6E90\u7248)\uFF0C\u514D\u8D39\u4F7F\u7528\uFF0C\u4E0D\u9700\u8981key"
 async: false
-shortName: tts
 homePage: https://github.com/ysnows/enconvo-azure-tts
 appCast: https://raw.githubusercontent.com/ysnows/enconvo-azure-tts/main/appcast.json
-shortCut: alt+j
 minAppVersion: 1.2.1
 flowType: plugin
 options:
-  - title: General
-    items:
-      - identifier: Alias
-        type: text
-        title: Alias
-        defaultValue: ''
-        menuValues: [ ]
-        desc: ''
-        placeholderText: Add alias
-        textWidth: 1.6e+2
-      - identifier: Hotkey
-        type: hotkey
-        title: Hotkey
-        defaultValue: ''
-        menuValues: [ ]
-        desc: This shortcut will open an ai conversation window from anywhere in the system
-          . Make sure it is not conflicting with other global shortcuts.
-        placeholderText: ''
-        textWidth: 2e+2
+- title: General
+  items:
+  - identifier: Alias
+    type: text
+    title: Alias
+    defaultValue: ''
+    menuValues: []
     desc: ''
-  - title: "\u8BED\u97F3\u9009\u62E9"
-    items:
-      - identifier: zh-CN-speaker
-        type: menu
-        title: "zh_CN\u8BED\u97F3"
-        defaultValue: zh-CN-XiaoxiaoNeural
-        menuValues:
-          - title: "\u6653\u6653 - zh-CN-XiaoxiaoNeural - Female"
-            value: zh-CN-XiaoxiaoNeural
-          - title: "\u4E91\u626C - zh-CN-YunyangNeural - Male"
-            value: zh-CN-YunyangNeural
-          - title: "\u6653\u8FB0 - zh-CN-XiaochenNeural - Female"
-            value: zh-CN-XiaochenNeural
-          - title: "\u6653\u6DB5 - zh-CN-XiaohanNeural - Female"
-            value: zh-CN-XiaohanNeural
-          - title: "\u6653\u68A6 - zh-CN-XiaomengNeural - Female"
-            value: zh-CN-XiaomengNeural
-          - title: "\u6653\u58A8 - zh-CN-XiaomoNeural - Female"
-            value: zh-CN-XiaomoNeural
-          - title: "\u6653\u79CB - zh-CN-XiaoqiuNeural - Female"
-            value: zh-CN-XiaoqiuNeural
-          - title: "\u6653\u777F - zh-CN-XiaoruiNeural - Female"
-            value: zh-CNXiaoruiNeural
-          - title: "\u6653\u53CC - zh-CN-XiaoshuangNeural - Female"
-            value: zh-CN-XiaoshuangNeural
-          - title: "\u6653\u8431 - zh-CN-XiaoxuanNeural - Female"
-            value: zh-CN-XiaoxuanNeural
-          - title: "\u6653\u989C - zh-CN-XiaoyanNeural - Female"
-            value: zh-CN-XiaoyanNeural
-          - title: "\u6653\u4F0A - zh-CN-XiaoyiNeural - Female"
-            value: zh-CN-XiaoyiNeural
-          - title: "\u6653\u60A0 - zh-CN-XiaoyouNeural - Female"
-            value: zh-CN-XiaoyouNeural
-          - title: "\u6653\u7504 - zh-CN-XiaozhenNeural - Female"
-            value: zh-CN-XiaozhenNeural
-          - title: "\u4E91\u67AB - zh-CN-YunfengNeural - Male"
-            value: zh-CN-YunfengNeural
-          - title: "\u4E91\u7693 - zh-CN-YunhaoNeural - Male"
-            value: zh-CN-YunhaoNeural
-          - title: "\u4E91\u5065 - zh-CN-YunjianNeural - Male"
-            value: zh-CN-YunjianNeural
-          - title: "\u4E91\u590F - zh-CN-YunxiaNeural - Male"
-            value: zh-CN-YunxiaNeural
-          - title: "\u4E91\u5E0C - zh-CN-YunxiNeural - Male"
-            value: zh-CN-YunxiNeural
-          - title: "\u4E91\u91CE - zh-CN-YunyeNeural - Male"
-            value: zh-CN-YunyeNeural
-          - title: "\u4E91\u6CFD - zh-CN-YunzeNeural - Male"
-            value: zh-CN-YunzeNeural
-        desc: "\u5207\u6362zh_CN\u8BED\u97F3\u89D2\u8272"
-        placeholderText: ''
-      - identifier: "en-US-speaker"
-        type: "menu"
-        title: "en-US语音"
-        defaultValue: "en-US-JennyNeural"
-        menuValues:
-          - title: "Jenny - en-US-JennyNeural - Female"
-            value: "en-US-JennyNeural"
-          - title: "Jenny Multilingual - en-US-JennyMultilingualNeural - Female"
-            value: "en-US-JennyMultilingualNeural"
-          - title: "Guy - en-US-GuyNeural - Male"
-            value: "en-US-GuyNeural"
-          - title: "Amber - en-US-AmberNeural - Female"
-            value: "en-US-AmberNeural"
-          - title: "Ana - en-US-AnaNeural - Female"
-            value: "en-US-AnaNeural"
-          - title: "Aria - en-US-AriaNeural - Female"
-            value: "en-US-AriaNeural"
-          - title: "Ashley - en-US-AshleyNeural - Female"
-            value: "en-US-AshleyNeural"
-          - title: "Brandon - en-US-BrandonNeural - Male"
-            value: "en-US-BrandonNeural"
-          - title: "Christopher - en-US-ChristopherNeural - Male"
-            value: "en-US-ChristopherNeural"
-          - title: "Cora - en-US-CoraNeural - Female"
-            value: "en-US-CoraNeural"
-          - title: "Davis - en-US-DavisNeural - Male"
-            value: "en-US-DavisNeural"
-          - title: "Elizabeth - en-US-ElizabethNeural - Female"
-            value: "en-US-ElizabethNeural"
-          - title: "Eric - en-US-EricNeural - Male"
-            value: "en-US-EricNeural"
-          - title: "Jacob - en-US-JacobNeural - Male"
-            value: "en-US-JacobNeural"
-          - title: "Jane - en-US-JaneNeural - Female"
-            value: "en-US-JaneNeural"
-          - title: "Jason - en-US-JasonNeural - Male"
-            value: "en-US-JasonNeural"
-          - title: "Michelle - en-US-MichelleNeural - Female"
-            value: "en-US-MichelleNeural"
-          - title: "Monica - en-US-MonicaNeural - Female"
-            value: "en-US-MonicaNeural"
-          - title: "Nancy - en-US-NancyNeural - Female"
-            value: "en-US-NancyNeural"
-          - title: "Sara - en-US-SaraNeural- Female"
-            value: "en-US-SaraNeural"
-          - title: "Steffan - en-US-SteffanNeural - Male"
-            value: "en-US-SteffanNeural"
-          - title: "Tony - en-US-TonyNeural - Male"
-            value: "en-US-TonyNeural"
-          - title: "AIGenerate1 - en-US-AIGenerate1Neural - Male"
-            value: "en-US-AIGenerate1Neural"
-          - title: "AIGenerate2 - en-US-AIGenerate2Neural - Female"
-            value: "en-US-AIGenerate2Neural"
-          - title: "Roger - en-US-RogerNeural - Male"
-            value: "en-US-RogerNeural"
-        desc: "切换en-US语音角色"
-      - identifier: "ja-JP-speaker"
-        type: "menu"
-        title: "ja-JP语音"
-        defaultValue: "ja-JP-NanamiNeural"
-        menuValues:
-          - title: "七海 - ja-JP-NanamiNeural - Female"
-            value: "ja-JP-NanamiNeural"
-          - title: "圭太 - ja-JP-KeitaNeural - Male"
-            value: "ja-JP-KeitaNeural"
-          - title: "碧衣 - ja-JP-AoiNeural - Female"
-            value: "ja-JP-AoiNeural"
-          - title: "大智 - ja-JP-DaichiNeural - Male"
-            value: "ja-JP-DaichiNeural"
-          - title: "真夕 - ja-JP-MayuNeural - Female"
-            value: "ja-JP-MayuNeural"
-          - title: "直紀 - ja-JP-NaokiNeural - Male"
-            value: "ja-JP-NaokiNeural"
-          - title: "志織 - ja-JP-ShioriNeural - Female"
-            value: "ja-JP-ShioriNeural"
-        desc: "切换ja-JP语音角角色"
-      - identifier: "ko-KR-speaker"
-        type: "menu"
-        title: "ko-KR语音"
-        defaultValue: "ko-KR-SunHiNeural"
-        menuValues:
-          - title: "선히 - ko-KR-SunHiNeural - Female"
-            value: "ko-KR-SunHiNeural"
-          - title: "인준 - ko-KR-InJoonNeural - Male"
-            value: "ko-KR-InJoonNeural"
-          - title: "봉진 - ko-KR-BongJinNeural - Male"
-            value: "ko-KR-BongJinNeural"
-          - title: "국민 - ko-KR-GookMinNeural - Male"
-            value: "ko-KR-GookMinNeural"
-          - title: "지민 - ko-KR-JiMinNeural - Female"
-            value: "ko-KR-JiMinNeural"
-          - title: "서현 - ko-KR-SeoHyeonNeural - Female"
-            value: "ko-KR-SeoHyeonNeural"
-          - title: "순복 - ko-KR-SoonBokNeural - Female"
-            value: "ko-KR-SoonBokNeural"
-          - title: "유진 - ko-KR-YuJinNeural - Female"
-            value: "ko-KR-YuJinNeural"
-        desc: "切换ko-KR语音角色"
-      - identifier: "zh-TW-speaker"
-        type: "menu"
-        title: "zh-TW语音"
-        defaultValue: "zh-TW-HsiaoChenNeural"
-        menuValues:
-          - title: "曉臻 - zh-TW-HsiaoChenNeural - Female"
-            value: "zh-TW-HsiaoChenNeural"
-          - title: "曉雨 - zh-TW-HsiaoYuNeural - Female"
-            value: "zh-TW-HsiaoYuNeural"
-          - title: "雲哲 - zh-TW-YunJheNeural - Male"
-            value: "zh-TW-YunJheNeural"
-        desc: "切换zh-TW语音角色"
-
-
-    desc: "\u9009\u62E9\u5BF9\u5E94\u8BED\u8A00\u7684\u8BED\u97F3"
+    placeholderText: Add alias
+    textWidth: 1.6e+2
+  - identifier: Hotkey
+    type: hotkey
+    title: Hotkey
+    defaultValue: ''
+    menuValues: []
+    desc: This shortcut will open an ai conversation window from anywhere in the system
+      . Make sure it is not conflicting with other global shortcuts.
+    placeholderText: ''
+    textWidth: 2e+2
+  desc: ''
+- title: "\u8BED\u97F3\u9009\u62E9"
+  items:
+  - identifier: zh-CN-speaker
+    type: menu
+    title: "zh_CN\u8BED\u97F3"
+    defaultValue: zh-CN-XiaoxiaoNeural
+    menuValues:
+    - title: "\u6653\u6653 - zh-CN-XiaoxiaoNeural - Female"
+      value: zh-CN-XiaoxiaoNeural
+    - title: "\u4E91\u626C - zh-CN-YunyangNeural - Male"
+      value: zh-CN-YunyangNeural
+    - title: "\u6653\u8FB0 - zh-CN-XiaochenNeural - Female"
+      value: zh-CN-XiaochenNeural
+    - title: "\u6653\u6DB5 - zh-CN-XiaohanNeural - Female"
+      value: zh-CN-XiaohanNeural
+    - title: "\u6653\u68A6 - zh-CN-XiaomengNeural - Female"
+      value: zh-CN-XiaomengNeural
+    - title: "\u6653\u58A8 - zh-CN-XiaomoNeural - Female"
+      value: zh-CN-XiaomoNeural
+    - title: "\u6653\u79CB - zh-CN-XiaoqiuNeural - Female"
+      value: zh-CN-XiaoqiuNeural
+    - title: "\u6653\u777F - zh-CN-XiaoruiNeural - Female"
+      value: zh-CNXiaoruiNeural
+    - title: "\u6653\u53CC - zh-CN-XiaoshuangNeural - Female"
+      value: zh-CN-XiaoshuangNeural
+    - title: "\u6653\u8431 - zh-CN-XiaoxuanNeural - Female"
+      value: zh-CN-XiaoxuanNeural
+    - title: "\u6653\u989C - zh-CN-XiaoyanNeural - Female"
+      value: zh-CN-XiaoyanNeural
+    - title: "\u6653\u4F0A - zh-CN-XiaoyiNeural - Female"
+      value: zh-CN-XiaoyiNeural
+    - title: "\u6653\u60A0 - zh-CN-XiaoyouNeural - Female"
+      value: zh-CN-XiaoyouNeural
+    - title: "\u6653\u7504 - zh-CN-XiaozhenNeural - Female"
+      value: zh-CN-XiaozhenNeural
+    - title: "\u4E91\u67AB - zh-CN-YunfengNeural - Male"
+      value: zh-CN-YunfengNeural
+    - title: "\u4E91\u7693 - zh-CN-YunhaoNeural - Male"
+      value: zh-CN-YunhaoNeural
+    - title: "\u4E91\u5065 - zh-CN-YunjianNeural - Male"
+      value: zh-CN-YunjianNeural
+    - title: "\u4E91\u590F - zh-CN-YunxiaNeural - Male"
+      value: zh-CN-YunxiaNeural
+    - title: "\u4E91\u5E0C - zh-CN-YunxiNeural - Male"
+      value: zh-CN-YunxiNeural
+    - title: "\u4E91\u91CE - zh-CN-YunyeNeural - Male"
+      value: zh-CN-YunyeNeural
+    - title: "\u4E91\u6CFD - zh-CN-YunzeNeural - Male"
+      value: zh-CN-YunzeNeural
+    desc: "\u5207\u6362zh_CN\u8BED\u97F3\u89D2\u8272"
+    placeholderText: ''
+    textWidth: 2e+2
+  - identifier: en-US-speaker
+    type: menu
+    title: "en-US\u8BED\u97F3"
+    defaultValue: en-US-JennyNeural
+    menuValues:
+    - title: Jenny - en-US-JennyNeural - Female
+      value: en-US-JennyNeural
+    - title: Jenny Multilingual - en-US-JennyMultilingualNeural - Female
+      value: en-US-JennyMultilingualNeural
+    - title: Guy - en-US-GuyNeural - Male
+      value: en-US-GuyNeural
+    - title: Amber - en-US-AmberNeural - Female
+      value: en-US-AmberNeural
+    - title: Ana - en-US-AnaNeural - Female
+      value: en-US-AnaNeural
+    - title: Aria - en-US-AriaNeural - Female
+      value: en-US-AriaNeural
+    - title: Ashley - en-US-AshleyNeural - Female
+      value: en-US-AshleyNeural
+    - title: Brandon - en-US-BrandonNeural - Male
+      value: en-US-BrandonNeural
+    - title: Christopher - en-US-ChristopherNeural - Male
+      value: en-US-ChristopherNeural
+    - title: Cora - en-US-CoraNeural - Female
+      value: en-US-CoraNeural
+    - title: Davis - en-US-DavisNeural - Male
+      value: en-US-DavisNeural
+    - title: Elizabeth - en-US-ElizabethNeural - Female
+      value: en-US-ElizabethNeural
+    - title: Eric - en-US-EricNeural - Male
+      value: en-US-EricNeural
+    - title: Jacob - en-US-JacobNeural - Male
+      value: en-US-JacobNeural
+    - title: Jane - en-US-JaneNeural - Female
+      value: en-US-JaneNeural
+    - title: Jason - en-US-JasonNeural - Male
+      value: en-US-JasonNeural
+    - title: Michelle - en-US-MichelleNeural - Female
+      value: en-US-MichelleNeural
+    - title: Monica - en-US-MonicaNeural - Female
+      value: en-US-MonicaNeural
+    - title: Nancy - en-US-NancyNeural - Female
+      value: en-US-NancyNeural
+    - title: Sara - en-US-SaraNeural- Female
+      value: en-US-SaraNeural
+    - title: Steffan - en-US-SteffanNeural - Male
+      value: en-US-SteffanNeural
+    - title: Tony - en-US-TonyNeural - Male
+      value: en-US-TonyNeural
+    - title: AIGenerate1 - en-US-AIGenerate1Neural - Male
+      value: en-US-AIGenerate1Neural
+    - title: AIGenerate2 - en-US-AIGenerate2Neural - Female
+      value: en-US-AIGenerate2Neural
+    - title: Roger - en-US-RogerNeural - Male
+      value: en-US-RogerNeural
+    desc: "\u5207\u6362en-US\u8BED\u97F3\u89D2\u8272"
+    placeholderText: ''
+    textWidth: 2e+2
+  - identifier: ja-JP-speaker
+    type: menu
+    title: "ja-JP\u8BED\u97F3"
+    defaultValue: ja-JP-NanamiNeural
+    menuValues:
+    - title: "\u4E03\u6D77 - ja-JP-NanamiNeural - Female"
+      value: ja-JP-NanamiNeural
+    - title: "\u572D\u592A - ja-JP-KeitaNeural - Male"
+      value: ja-JP-KeitaNeural
+    - title: "\u78A7\u8863 - ja-JP-AoiNeural - Female"
+      value: ja-JP-AoiNeural
+    - title: "\u5927\u667A - ja-JP-DaichiNeural - Male"
+      value: ja-JP-DaichiNeural
+    - title: "\u771F\u5915 - ja-JP-MayuNeural - Female"
+      value: ja-JP-MayuNeural
+    - title: "\u76F4\u7D00 - ja-JP-NaokiNeural - Male"
+      value: ja-JP-NaokiNeural
+    - title: "\u5FD7\u7E54 - ja-JP-ShioriNeural - Female"
+      value: ja-JP-ShioriNeural
+    desc: "\u5207\u6362ja-JP\u8BED\u97F3\u89D2\u89D2\u8272"
+    placeholderText: ''
+    textWidth: 2e+2
+  - identifier: ko-KR-speaker
+    type: menu
+    title: "ko-KR\u8BED\u97F3"
+    defaultValue: ko-KR-SunHiNeural
+    menuValues:
+    - title: "\uC120\uD788 - ko-KR-SunHiNeural - Female"
+      value: ko-KR-SunHiNeural
+    - title: "\uC778\uC900 - ko-KR-InJoonNeural - Male"
+      value: ko-KR-InJoonNeural
+    - title: "\uBD09\uC9C4 - ko-KR-BongJinNeural - Male"
+      value: ko-KR-BongJinNeural
+    - title: "\uAD6D\uBBFC - ko-KR-GookMinNeural - Male"
+      value: ko-KR-GookMinNeural
+    - title: "\uC9C0\uBBFC - ko-KR-JiMinNeural - Female"
+      value: ko-KR-JiMinNeural
+    - title: "\uC11C\uD604 - ko-KR-SeoHyeonNeural - Female"
+      value: ko-KR-SeoHyeonNeural
+    - title: "\uC21C\uBCF5 - ko-KR-SoonBokNeural - Female"
+      value: ko-KR-SoonBokNeural
+    - title: "\uC720\uC9C4 - ko-KR-YuJinNeural - Female"
+      value: ko-KR-YuJinNeural
+    desc: "\u5207\u6362ko-KR\u8BED\u97F3\u89D2\u8272"
+    placeholderText: ''
+    textWidth: 2e+2
+  - identifier: zh-TW-speaker
+    type: menu
+    title: "zh-TW\u8BED\u97F3"
+    defaultValue: zh-TW-HsiaoChenNeural
+    menuValues:
+    - title: "\u66C9\u81FB - zh-TW-HsiaoChenNeural - Female"
+      value: zh-TW-HsiaoChenNeural
+    - title: "\u66C9\u96E8 - zh-TW-HsiaoYuNeural - Female"
+      value: zh-TW-HsiaoYuNeural
+    - title: "\u96F2\u54F2 - zh-TW-YunJheNeural - Male"
+      value: zh-TW-YunJheNeural
+    desc: "\u5207\u6362zh-TW\u8BED\u97F3\u89D2\u8272"
+    placeholderText: ''
+    textWidth: 2e+2
+  desc: "\u9009\u62E9\u5BF9\u5E94\u8BED\u8A00\u7684\u8BED\u97F3"
