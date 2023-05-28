@@ -50,15 +50,31 @@ function main(text, contextText, completion) {
                             }
                         });
 
-                    completion({
-                        result: {
-                            "type": "audio",
-                            "format": "base64",
-                            "value": resp.rawData.toBase64(),
-                            "contentType": resp.headers.get('Content-Type'),
-                            "raw": {}
-                        },
-                    });
+                    let contentType = resp.headers.get('Content-Type')
+                    console.log("contentType: " + contentType)
+
+                    if (contentType === "application/json") {
+                        let jsonResp = await resp.json();
+
+                        completion({
+                            result: {
+                                "type": "error",
+                                "value": jsonResp.error.message || "未知错误",
+                                "contentType": contentType,
+                            },
+                        });
+
+                    } else {
+                        completion({
+                            result: {
+                                "type": "audio",
+                                "format": "base64",
+                                "value": resp.rawData.toBase64(),
+                                "contentType": contentType,
+                                "raw": {}
+                            },
+                        });
+                    }
                 } catch (e) {
                     throw e;
                 }
@@ -74,10 +90,9 @@ function main(text, contextText, completion) {
         }
     })().catch((err) => {
         completion({
-            error: {
-                type: err._type || 'unknown',
-                message: err._message || '未知错误',
-                addtion: err._addtion,
+            result: {
+                type: "error",
+                value: err._message || '未知错误',
             },
         });
     });
