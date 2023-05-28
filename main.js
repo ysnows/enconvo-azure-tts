@@ -1,22 +1,34 @@
+var config = require('./config.js');
+var utils = require('./utils.js');
+
 function main(text, contextText, completion) {
 
     (async () => {
-        var target_lang = 'en-US';
         var target_voice = 'en-US-GuyNeural';
         const translate_text = text || contextText.value || await Clipboard.readText();
 
         console.log("begin")
 
         if (translate_text !== '') {
-            let source_lang = await $Lang.detect(translate_text)
-            console.log("source_lang : " + source_lang)
+            let detected_lang = await $Lang.detect(translate_text)
+            console.log("detected_lang: " + detected_lang)
+            const targetLanguage = utils.langMap.get(detected_lang);
+
+            console.log("targetLanguage: " + targetLanguage)
+            if (!targetLanguage) {
+                const err = new Error();
+                Object.assign(err, {
+                    _type: 'error',
+                    _message: '不支持该语种',
+                });
+                throw err;
+            }
+
             // 如果是中文则翻译成英文，否则翻译成中文
-            if (source_lang === 'en') {
-                target_lang = 'en-US'
+            if (targetLanguage === 'en') {
                 target_voice = 'en-US-GuyNeural'
             }
-            if (source_lang === 'zh') {
-                target_lang = 'zh-CN'
+            if (targetLanguage === 'zh-CN') {
                 target_voice = 'zh-CN-YunzeNeural'
             }
 
@@ -46,7 +58,7 @@ function main(text, contextText, completion) {
                             // body: {"lang": targetLanguage, "speaker": $option[targetLanguage + '-speaker'], "text": query.text},
                             body: {
                                 "ttsAudioFormat": "audio-24khz-160kbitrate-mono-mp3",
-                                "ssml": `<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:mstts=\"http://www.w3.org/2001/mstts\" version=\"1.0\" xml:lang=\"${target_lang}\"><voice name=\"${target_voice}\"><mstts:express-as><prosody rate=\"1\" pitch=\"0%\">${translate_text}</prosody></mstts:express-as></voice></speak>`
+                                "ssml": `<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:mstts=\"http://www.w3.org/2001/mstts\" version=\"1.0\" xml:lang=\"${targetLanguage}\"><voice name=\"${target_voice}\"><mstts:express-as><prosody rate=\"1\" pitch=\"0%\">${translate_text}</prosody></mstts:express-as></voice></speak>`
                             }
                         });
 
