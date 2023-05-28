@@ -4,7 +4,6 @@ var utils = require('./utils.js');
 function main(text, contextText, completion) {
 
     (async () => {
-        var target_voice = 'en-US-GuyNeural';
         const translate_text = text || contextText.value || await Clipboard.readText();
 
         console.log("begin")
@@ -25,12 +24,9 @@ function main(text, contextText, completion) {
             }
 
             // 如果是中文则翻译成英文，否则翻译成中文
-            if (targetLanguage === 'en') {
-                target_voice = 'en-US-GuyNeural'
-            }
-            if (targetLanguage === 'zh-CN') {
-                target_voice = 'zh-CN-YunzeNeural'
-            }
+
+            let target_voice = $option[targetLanguage + '-speaker']
+            console.log("target_voice: " + target_voice)
 
             try {
                 try {
@@ -58,7 +54,7 @@ function main(text, contextText, completion) {
                             // body: {"lang": targetLanguage, "speaker": $option[targetLanguage + '-speaker'], "text": query.text},
                             body: {
                                 "ttsAudioFormat": "audio-24khz-160kbitrate-mono-mp3",
-                                "ssml": `<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:mstts=\"http://www.w3.org/2001/mstts\" version=\"1.0\" xml:lang=\"${targetLanguage}\"><voice name=\"${target_voice}\"><mstts:express-as><prosody rate=\"1\" pitch=\"0%\">${translate_text}</prosody></mstts:express-as></voice></speak>`
+                                "ssml": `<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" xmlns:mstts=\"http://www.w3.org/2001/mstts\" version=\"1.0\" xml:lang=\"${targetLanguage}\"><voice name=\"${$option[targetLanguage + '-speaker']}\"><mstts:express-as><prosody rate=\"1\" pitch=\"0%\">${translate_text}</prosody></mstts:express-as></voice></speak>`
                             }
                         });
 
