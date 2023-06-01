@@ -1,5 +1,11 @@
 {
   "identifier": "ysnows.azure-tts",
   "versions": [
+    {
+      "version": "0.1.0",
+      "desc": "feat: 1. 优化",
+      "url": "https://github.com/ysnows/enconvo-azure-tts/releases/download/v0.1.0/enconvo-azure-tts.enconvoplugin",
+      "minAppVersion": "1.1.8"
+    }
   ]
 }
